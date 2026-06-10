@@ -1,4 +1,4 @@
--- Protected by Antigravity Lua Obfuscator
+-- Protected by Lua Obfuscator
 local IllIIllIIl = "1iQnNyefOtKFdRwU4Hzsb+GhDWmPaqp0vB3j9AC5IgZEJ7kMVucY/82LTSXr6xlo"
 local lIlIIllIll = {}
 for i = 1, #IllIIllIIl do
