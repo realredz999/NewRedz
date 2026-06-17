@@ -12,7 +12,7 @@ local BloxFruitsIDs = {
 
 if BloxFruitsIDs[PlaceId] then
     -- Load the BloxFruits script from the new repository
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz999/NewRedz/main/BloxFruits.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz999/NewRedz/main/BloxFruits.txt"))()
 else
     warn("Unsupported Game PlaceId: " .. tostring(PlaceId))
 end
