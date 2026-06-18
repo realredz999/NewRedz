@@ -1,6 +1,5 @@
 local PlaceId = game.PlaceId
 
-
 local BloxFruitsIDs = {
     [2753915549] = true,
     [85211729168715] = true,
@@ -11,8 +10,7 @@ local BloxFruitsIDs = {
 }
 
 if BloxFruitsIDs[PlaceId] then
-
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz999/NewRedz/main/obfed/BloxFruits.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz999/NewRedz/main/BloxFruits.lua"))()
 else
     warn("Unsupported Game PlaceId: " .. tostring(PlaceId))
 end
