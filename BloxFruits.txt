@@ -1,111 +1,119 @@
-local NewScript = [[
-loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz999/NewRedz/main/main.lua"))()
-]]
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local newScript = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz999/NewRedz/main/main.lua"))()'
+
+if player.PlayerGui:FindFirstChild("RedzOutdatedGui") then
+    player.PlayerGui.RedzOutdatedGui:Destroy()
+end
 
 local ScreenGui = Instance.new("ScreenGui")
-local Main = Instance.new("Frame")
-local MainCorner = Instance.new("UICorner")
+ScreenGui.Name = "RedzOutdatedGui"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = player:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 420, 0, 260)
+Frame.Position = UDim2.new(0.5, -210, 0.5, -130)
+Frame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+Frame.BorderSizePixel = 0
+Frame.Parent = ScreenGui
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = Frame
 
 local Title = Instance.new("TextLabel")
-local Message = Instance.new("TextLabel")
-local ScriptBox = Instance.new("TextBox")
-
-local Close = Instance.new("TextButton")
-local Copy = Instance.new("TextButton")
-
-ScreenGui.Parent = game:GetService("CoreGui")
-
-Main.Parent = ScreenGui
-Main.AnchorPoint = Vector2.new(0.5, 0.5)
-Main.Position = UDim2.fromScale(0.5, 0.5)
-Main.Size = UDim2.new(0, 900, 0, 500)
-Main.BackgroundColor3 = Color3.fromRGB(20,20,20)
-
-MainCorner.Parent = Main
-MainCorner.CornerRadius = UDim.new(0,18)
-
--- Title
-Title.Parent = Main
+Title.Size = UDim2.new(1, -20, 0, 30)
+Title.Position = UDim2.new(0, 10, 0, 15)
 Title.BackgroundTransparency = 1
-Title.Position = UDim2.new(0,0,0,10)
-Title.Size = UDim2.new(1,0,0,80)
-Title.Text = "Redz Hub"
-Title.TextColor3 = Color3.fromRGB(255,255,255)
-Title.TextSize = 60
+Title.Text = "This Redz Hub Script is Outdated."
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Font = Enum.Font.GothamBold
+Title.TextSize = 18
+Title.Parent = Frame
 
--- Warning Message
-Message.Parent = Main
-Message.BackgroundTransparency = 1
-Message.Position = UDim2.new(0.05,0,0.16,0)
-Message.Size = UDim2.new(0.9,0,0,70)
-Message.Text = "⚠️ This Redz Hub Script is Outdated.\nUse the new one from below."
-Message.TextColor3 = Color3.fromRGB(255,255,255)
-Message.TextSize = 28
-Message.Font = Enum.Font.Gotham
-Message.TextWrapped = true
+local SubTitle = Instance.new("TextLabel")
+SubTitle.Size = UDim2.new(1, -20, 0, 24)
+SubTitle.Position = UDim2.new(0, 10, 0, 45)
+SubTitle.BackgroundTransparency = 1
+SubTitle.Text = "Use the new one from below."
+SubTitle.TextColor3 = Color3.fromRGB(200, 200, 200)
+SubTitle.Font = Enum.Font.Gotham
+SubTitle.TextSize = 15
+SubTitle.Parent = Frame
 
--- Script Box
-ScriptBox.Parent = Main
-ScriptBox.Position = UDim2.new(0.05,0,0.40,0)
-ScriptBox.Size = UDim2.new(0.9,0,0,120)
+local ScriptBox = Instance.new("Frame")
+ScriptBox.Size = UDim2.new(1, -20, 0, 80)
+ScriptBox.Position = UDim2.new(0, 10, 0, 80)
+ScriptBox.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+ScriptBox.BorderSizePixel = 0
+ScriptBox.Parent = Frame
 
-ScriptBox.Text = NewScript
-ScriptBox.ClearTextOnFocus = false
+local ScriptBoxCorner = Instance.new("UICorner")
+ScriptBoxCorner.CornerRadius = UDim.new(0, 10)
+ScriptBoxCorner.Parent = ScriptBox
 
-ScriptBox.TextWrapped = false
-ScriptBox.TextScaled = true
+local ScriptText = Instance.new("TextBox")
+ScriptText.Size = UDim2.new(1, -20, 1, -20)
+ScriptText.Position = UDim2.new(0, 10, 0, 10)
+ScriptText.BackgroundTransparency = 1
+ScriptText.Text = newScript
+ScriptText.TextColor3 = Color3.fromRGB(220, 220, 220)
+ScriptText.Font = Enum.Font.Code
+ScriptText.TextSize = 12
+ScriptText.TextWrapped = true
+ScriptText.ClearTextOnFocus = false
+ScriptText.TextEditable = false
+ScriptText.TextXAlignment = Enum.TextXAlignment.Left
+ScriptText.TextYAlignment = Enum.TextYAlignment.Top
+ScriptText.Parent = ScriptBox
 
-ScriptBox.Font = Enum.Font.Code
-ScriptBox.BackgroundColor3 = Color3.fromRGB(35,35,35)
-ScriptBox.TextColor3 = Color3.fromRGB(255,255,255)
+local CopyButton = Instance.new("TextButton")
+CopyButton.Size = UDim2.new(1, -20, 0, 36)
+CopyButton.Position = UDim2.new(0, 10, 0, 170)
+CopyButton.BackgroundColor3 = Color3.fromRGB(229, 57, 53)
+CopyButton.Text = "Copy"
+CopyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CopyButton.Font = Enum.Font.GothamBold
+CopyButton.TextSize = 15
+CopyButton.Parent = Frame
 
-ScriptBox.TextXAlignment = Enum.TextXAlignment.Center
-ScriptBox.TextYAlignment = Enum.TextYAlignment.Center
+local CopyButtonCorner = Instance.new("UICorner")
+CopyButtonCorner.CornerRadius = UDim.new(0, 8)
+CopyButtonCorner.Parent = CopyButton
 
-local BoxCorner = Instance.new("UICorner")
-BoxCorner.Parent = ScriptBox
-BoxCorner.CornerRadius = UDim.new(0,12)
+CopyButton.MouseButton1Click:Connect(function()
+    local ok = pcall(function()
+        setclipboard(newScript)
+    end)
 
--- Close Button
-Close.Parent = Main
-Close.Position = UDim2.new(0.08,0,0.82,0)
-Close.Size = UDim2.new(0.38,0,0,70)
+    if ok then
+        CopyButton.Text = "Copied!"
+        CopyButton.BackgroundColor3 = Color3.fromRGB(46, 125, 50)
+    else
+        CopyButton.Text = "Copy failed"
+    end
 
-Close.Text = "Close"
-Close.TextScaled = true
-
-Close.BackgroundColor3 = Color3.fromRGB(45,45,45)
-Close.TextColor3 = Color3.fromRGB(255,255,255)
-Close.Font = Enum.Font.GothamBold
-
-local CloseCorner = Instance.new("UICorner")
-CloseCorner.Parent = Close
-CloseCorner.CornerRadius = UDim.new(0,12)
-
--- Copy Button
-Copy.Parent = Main
-Copy.Position = UDim2.new(0.54,0,0.82,0)
-Copy.Size = UDim2.new(0.38,0,0,70)
-
-Copy.Text = "Copy Script"
-Copy.TextScaled = true
-
-Copy.BackgroundColor3 = Color3.fromRGB(230,35,35)
-Copy.TextColor3 = Color3.fromRGB(255,255,255)
-Copy.Font = Enum.Font.GothamBold
-
-local CopyCorner = Instance.new("UICorner")
-CopyCorner.Parent = Copy
-CopyCorner.CornerRadius = UDim.new(0,12)
-
-Close.MouseButton1Click:Connect(function()
-ScreenGui:Destroy()
+    task.wait(1.5)
+    CopyButton.Text = "Copy"
+    CopyButton.BackgroundColor3 = Color3.fromRGB(229, 57, 53)
 end)
 
-Copy.MouseButton1Click:Connect(function()
-if setclipboard then
-setclipboard(NewScript)
-Copy.Text = "Copied!"
-end
+local CloseButton = Instance.new("TextButton")
+CloseButton.Size = UDim2.new(0, 90, 0, 32)
+CloseButton.Position = UDim2.new(0, 10, 1, -42)
+CloseButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+CloseButton.Text = "Close"
+CloseButton.TextColor3 = Color3.fromRGB(229, 57, 53)
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.TextSize = 14
+CloseButton.Parent = Frame
+
+local CloseButtonCorner = Instance.new("UICorner")
+CloseButtonCorner.CornerRadius = UDim.new(0, 8)
+CloseButtonCorner.Parent = CloseButton
+
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
 end)
