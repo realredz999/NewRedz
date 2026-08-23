@@ -19,4 +19,4 @@ local Settings = {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz999/NewRedz/main/main.lua"))(Settings)
 ```
 
-### This Redz Hub is a fan-made version, we welcome criticism :)
+### This Is For Educational Purposes only. :)
